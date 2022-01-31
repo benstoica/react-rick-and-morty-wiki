@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Filters from "./components/Filters/Filters";
-import Cards from "./components/Cards/Cards";
+import Card from "./components/Card/Card";
 
 function App() {
   let [pageNumber, setPageNumber] = useState(1);
@@ -31,7 +31,7 @@ function App() {
           </div>
           <div className='col-8'>
             <div className='row'>
-              <Cards />
+              <Card results={results} />
             </div>
           </div>
         </div>
