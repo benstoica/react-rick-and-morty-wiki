@@ -1,12 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Filters from "./components/Filters/Filters";
 import Card from "./components/Card/Card";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
+import Navbar from "./components/Navbar/Navbar";
+import Episodes from "./Pages/Episodes";
+import Location from "./Pages/Location";
 
 function App() {
+  return (
+    <Router>
+      <div className='App'>
+        <Navbar />
+      </div>
+
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/episodes' element={<Episodes />} />
+        <Route path='/location' element={<Location />} />
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () => {
   let [pageNumber, setPageNumber] = useState(1);
   let [search, setSearch] = useState("");
   let [fetchedData, setFetchedData] = useState([]);
@@ -27,10 +47,6 @@ function App() {
 
   return (
     <div className='App'>
-      <h1 className='text-center ubuntu my-4'>
-        <span className='text-primary'>Rick & Morty Wiki</span>
-      </h1>
-
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
       <div className='container'>
@@ -55,6 +71,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;
