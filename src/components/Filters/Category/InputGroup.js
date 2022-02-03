@@ -7,7 +7,9 @@ const InputGroup = ({ total, name, setId }) => {
         onChange={(e) => setId(e.target.value)}
         className='form-select'
         id={name}>
-        <option defaultValue='Choose'>Choose...</option>
+        <option defaultValue='Choose' value='1'>
+          Choose...
+        </option>
         {[...Array(total).keys()].map((episodeNumber, index) => {
           return (
             <option key={index} value={episodeNumber + 1}>
