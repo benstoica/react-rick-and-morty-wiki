@@ -7,8 +7,11 @@ const Card = ({ results }) => {
     display = results.map((result) => {
       let { id, name, image, location, status } = result;
       return (
-        <div className='col-4 mb-4 position-relative' key={id}>
-          <div className={styles.cards}>
+        <div
+          className='col-lg-4 col-md-6 col-12 mb-4 position-relative'
+          key={id}>
+          <div
+            className={`${styles.cards} d-flex flex-column justify-content-center`}>
             <img className={`img-fluid ${styles.img}`} src={image} alt={name} />
             <div className={`${styles.content}`}>
               <div className='fs-4 fw-bold mb-4'>{name}</div>
